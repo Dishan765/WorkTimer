@@ -1,0 +1,40 @@
+{% set active_page = "stopwatch" %}
+
+{% extends 'header.html' %}
+
+{% block content %}
+<div class="container">
+  <div id="display">
+    00:00:00
+  </div>
+
+  <div class="buttons">
+    <button type="button" class="btn btn-primary" id="startPause" onclick="startPause()">Start</button>
+    <button type="button" class="btn btn-secondary" id="reset" onclick="reset()">Reset</button>
+  </div>
+
+  <div class="saveDiv">
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="timeWorkedModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title center">Amount of Time Worked</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

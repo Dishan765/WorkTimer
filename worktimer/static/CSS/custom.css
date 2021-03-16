@@ -1,0 +1,77 @@
+.active{
+  background-color:rgb(208, 216, 208);
+  color:blueviolet;
+}
+
+.container{
+  height: 300px;
+  width: 100%;
+  padding-top: 10em;
+  padding-bottom: 20em;
+  
+}
+
+#display{
+  width: 100%;
+  font-size: 72px;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.buttons{
+  text-align: center;
+ 
+}
+
+#startPause,#reset{
+  /*
+  background-color: aliceblue;
+  border-radius: 5px;
+  width: 20%;
+  margin-right: 20px;
+  */
+}
+
+.saveDiv{
+  text-align: center;
+  padding-top: 10px;
+}
+
+#modal-para{
+  text-align: center;
+} 
+
+.dateInput{
+  text-align: center;
+  border-style: solid;
+  border-color: azure;
+  background-color: aliceblue;
+  color: black;
+  width: 50%;
+  margin:auto;
+  font-size: 125%;
+}
+
+.workContainer{
+  text-align: center;
+  border-style: solid;
+  border-color: azure;
+  background-color: aliceblue;
+  color: black;
+  width: 35%;
+  margin: auto;
+  font-size: 125%;
+}
+
+#workTime{
+  text-align: center;
+  color: black;
+  font-size: 125%;
+}
+
+.canvasContainer{
+  width: 80%;
+  height: auto;
+  margin: auto;
+}
+

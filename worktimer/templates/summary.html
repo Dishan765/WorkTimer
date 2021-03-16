@@ -1,0 +1,75 @@
+{% set active_page = "summary" %}
+
+{% extends 'header.html' %}
+
+{% block content %}
+<br />
+<div class="workContainer">
+        <label for="avgWork">Average Work Time per day (Hrs):</label>
+        <input type="text" readonly="readonly" class="form-control-plaintext" id="workTime" name="avgWork"
+                value="{{ avgTime }}">
+</div>
+<br />
+<br />
+<div class="canvasContainer">
+        <canvas id="myChart" width="200" height="500"></canvas>
+</div>
+<br />
+<br />
+<div class="dateInput">
+        <form method="POST" action="">
+                <label for="chooseDate">Choose a date/ to the week's time worked:</label>
+                <input name="chooseDate" type="date">
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+
+<script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                                label: 'Time Worked (Hrs)',
+                                data: {{ data| tojson }},
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 194, 144, 0.2)'
+        ],
+                borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 194, 144, 1)'
+        ],
+                borderWidth: 1
+                        }]
+                },
+        options: {
+                responsive: true,
+                        maintainAspectRatio: false,
+                                title: {
+                        display: true,
+                                text: '{{ startDate }} to {{ endDate }}'
+                },
+                scales: {
+                        yAxes: [{
+                                ticks: {
+                                        beginAtZero: true
+                                }
+                        }]
+                }
+        }
+        });
+</script>
+{% endblock content %}
