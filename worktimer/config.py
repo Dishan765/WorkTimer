@@ -1,7 +1,8 @@
 
 #username = "root"
 username = "dishan765"
-password = "12345"
+#password = "12345"
+password = "python12345"
 #server = "localhost"
 server = "dishan765.mysql.pythonanywhere-services.com"
 database = "WorkTimer"
