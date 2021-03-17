@@ -1,7 +1,9 @@
 
-username = "root"
+#username = "root"
+username = "dishan765"
 password = "12345"
-server = "localhost"
+#server = "localhost"
+server = "dishan765.mysql.pythonanywhere-services.com"
 database = "WorkTimer"
 
 class Config:
