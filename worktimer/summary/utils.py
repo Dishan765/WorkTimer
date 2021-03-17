@@ -37,7 +37,7 @@ def TimeToHrs(time):
   (h,m,s) = time.split(":")
   timeSec = (int(h)*60*60)+(int(m)*60) +int(s)
   timeHrs = timeSec/3600
-  return timeHrs
+  return round(timeHrs,3)
 
 
 
