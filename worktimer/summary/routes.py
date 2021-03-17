@@ -9,17 +9,23 @@ details = Blueprint('details', __name__)
 def summary():
   if request.method == 'POST':
     inputDate = request.form['chooseDate']
-    inputDate = datetime.strptime(inputDate,"%Y-%m-%d").date()
-    weekDates = getWeekDates(inputDate)
-    data = getTimesFromDb(weekDates)  
+    if inputDate == "":
+      inputDate = date.today()
+      weekDates = getWeekDates(inputDate)
+      data = getTimesFromDb(weekDates) 
+    else:
+      inputDate = datetime.strptime(inputDate,"%Y-%m-%d").date()
+      weekDates = getWeekDates(inputDate)
+      data = getTimesFromDb(weekDates)  
   else:
     #get current date
     inputDate = date.today()
-    print(type(inputDate))
     weekDates = getWeekDates(inputDate)
     data = getTimesFromDb(weekDates) 
 
   avgTime = avgWorkTime()
+  
+
   return render_template('summary.html',data=data,startDate=weekDates[0],endDate=weekDates[len(weekDates)-1],avgTime=avgTime)
 
 

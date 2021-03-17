@@ -21,14 +21,14 @@ def getTimesFromDb(weekDates):
       #print(wd)
       total = datetime.strptime('00:00:00', '%H:%M:%S')
       records = WorkTime.query.filter_by(created_date=wd).all()
-      for r in records:
-        #print(type(r.work_time))
-        #print(type(total))
-        total = sumTime(total,r.work_time)  
-      timeStr = datetime.strftime(total,"%H:%M:%S")
-      timeHrs = TimeToHrs(timeStr)
-      timeData.append(timeHrs)
-   
+      if len(records)>0:
+        for r in records:
+          total = sumTime(total,r.work_time)  
+        timeStr = datetime.strftime(total,"%H:%M:%S")
+        timeHrs = TimeToHrs(timeStr)
+        timeData.append(timeHrs)
+      else:
+        timeData = [0,0,0,0,0,0,0]
   return timeData
 
 #Argument:Time in string
@@ -44,11 +44,13 @@ def TimeToHrs(time):
 def avgWorkTime():
   records = WorkTime.query.all()
   total = datetime.strptime('00:00:00', '%H:%M:%S')
-  for r in records:
-    total = sumTime(total,r.work_time)  
+  if len(records)>0:
+    for r in records:
+      total = sumTime(total,r.work_time)  
   
-  timeStr = datetime.strftime(total,"%H:%M:%S")
-  timeHrs = TimeToHrs(timeStr)
-  avg = timeHrs/(len(records))
-  return round(avg,3)
+    timeStr = datetime.strftime(total,"%H:%M:%S")
+    timeHrs = TimeToHrs(timeStr)
+    avg = timeHrs/(len(records))
+    return round(avg,3)
+  return 0
   
