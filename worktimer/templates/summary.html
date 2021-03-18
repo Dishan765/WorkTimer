@@ -16,11 +16,42 @@
 </div>
 <br />
 <br />
+
+<!--
 <div class="dateInput">
         <form method="POST" action="">
-                <label for="chooseDate">Choose a date/ to the week's time worked:</label>
+                <label for="chooseDate">Choose a date to the week's time worked:</label>
                 <input name="chooseDate" type="date">
                 <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+-->
+<div class="dateInput">
+        <form method="POST" action="">
+                {{ formDate.hidden_tag() }}
+                <fieldset>
+                        <legend><b>Choose a date to display summary</b></legend>
+                        <div class="form-group">
+                                {{ formDate.date.label}}
+                                {{ formDate.date(class = "") }}
+                        </div>
+                        {{ formDate.submitDate(class = "btn btn-primary") }}
+                </fieldset>
+        </form>
+</div>
+<br />
+<div class="dateInput">
+        <form method="POST" action="" id = "formTime">
+                <fieldset>
+                        <legend><b>Enter a time to convert to H:M:S</b></legend>
+                        <div class="form-group">
+                                <label for="timeInput">Choose a date to the week's time worked:</label>
+                                <input type = "text" name="timeInput" class = "form-control w-50 offset-3" id = "timeInput">
+                                <br/>
+                                <input class="form-control w-50 offset-3" type="text" placeholder="00:00:00" id = "outputTime" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id = "submitTime">Submit</button>
+                </fieldset>
         </form>
 </div>
 
@@ -28,7 +59,7 @@
 <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'horizontalBar',
                 data: {
                         labels: ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
                         datasets: [{

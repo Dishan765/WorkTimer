@@ -99,7 +99,7 @@ function startPause() {
 }
 
 
-
+//store time in datatabase
 function storeTime() {
     workTime = displayHours + ":" + displayMinutes + ":" + displaySeconds;
     var popUpText = document.getElementsByClassName("modal-body");
@@ -114,8 +114,8 @@ function storeTime() {
         data: JSON.stringify({ workTime }),
         dataType: "json",
         success: function (response) {
-            //console.log(response);
-            window.location='http://127.0.0.1:5000/summary';
+            console.log(response);
+            //window.location = 'http://127.0.0.1:5000/summary';
         },
         error: function (error) {
             console.log(error);
@@ -137,4 +137,25 @@ function reset() {
     status = "pause";
 }
 
-//chart.js code
+//Convert time to H:M:S
+$(document).ready(function () {
+    $('#formTime').submit(function (e) {
+        //var url = "{{ url_for('details.convertTime') }}"; // send the form data here.
+        timeInput = $('#timeInput').val();
+        $.ajax({
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            url: '/convertTime',
+            traditional: "true",
+            data: JSON.stringify({ timeInput }),
+            dataType: "json",
+            success: function (response) {
+                $('#outputTime').attr('placeholder', response)
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+        e.preventDefault(); // block the traditional submission of the form.
+    });
+});

@@ -44,18 +44,20 @@
 .dateInput{
   text-align: center;
   border-style: solid;
-  border-color: azure;
+  border-color: black;
   background-color: aliceblue;
   color: black;
   width: 50%;
   margin:auto;
+  padding: 2%;
   font-size: 125%;
 }
+
 
 .workContainer{
   text-align: center;
   border-style: solid;
-  border-color: azure;
+  border-color: black;
   background-color: aliceblue;
   color: black;
   width: 35%;
@@ -75,3 +77,6 @@
   margin: auto;
 }
 
+.input-group {
+  margin: 0 auto !important;
+}
