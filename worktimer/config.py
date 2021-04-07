@@ -1,13 +1,13 @@
 
-# username = "root"
-# password = "12345"
-# database = "WorkTimer"
-# server = "localhost"
+username = "root"
+password = "12345"
+database = "WorkTimer"
+server = "localhost"
 
-password = "python12345"
-server = "dishan765.mysql.pythonanywhere-services.com"
-username = "dishan765"
-database ="dishan765$WorkTimer"
+# password = "python12345"
+# server = "dishan765.mysql.pythonanywhere-services.com"
+# username = "dishan765"
+# database ="dishan765$WorkTimer"
 
 class Config:
   SEND_FILE_MAX_AGE_DEFAULT = 0 #to remove

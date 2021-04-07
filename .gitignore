@@ -5,3 +5,5 @@ venv/
 ENV/
 
 __pycache__/
+
+.vscode
