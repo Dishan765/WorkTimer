@@ -10,5 +10,3 @@ Tools used: HTML, CSS, JavaScript, Bootstrap, Flask
 * Used blueprints and application factories in Flask.
 * Used an Object Relational Mapping to create and query MySQL database.
 
-# SQL Bogus Data 
-
