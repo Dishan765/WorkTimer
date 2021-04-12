@@ -1,4 +1,4 @@
-# NewsLister
+# WorkTimer
 
 An application to record the amount of time worked per day and display a summary on a barchart. 
 
