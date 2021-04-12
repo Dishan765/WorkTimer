@@ -9,3 +9,6 @@ Tools used: HTML, CSS, JavaScript, Bootstrap, Flask
 * Used chart.js library to create a barchart.
 * Used blueprints and application factories in Flask.
 * Used an Object Relational Mapping to create and query MySQL database.
+
+# SQL Bogus Data 
+
