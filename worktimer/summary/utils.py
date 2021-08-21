@@ -1,4 +1,4 @@
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, time, timedelta
 import re
 from worktimer.models import WorkTime
 
@@ -22,6 +22,8 @@ def getTimesFromDb(weekDates):
         records = WorkTime.query.filter_by(created_date=wd).all()
         for r in records:
             total = sumTime(total, r.work_time)
+            print(total)
+            
         timeStr = datetime.strftime(total, "%H:%M:%S")
         timeHrs = TimeToHrs(timeStr)
         timeData.append(timeHrs)
@@ -29,6 +31,7 @@ def getTimesFromDb(weekDates):
     if (len(timeData) <= 0):
         timeData = [0, 0, 0, 0, 0, 0, 0]
 
+    print(timeData)
     return timeData
 
 #Argument:Time in string
@@ -39,7 +42,7 @@ def TimeToHrs(time):
     (h, m, s) = time.split(":")
     timeSec = (int(h)*60*60)+(int(m)*60) + int(s)
     timeHrs = timeSec/3600
-    return round(timeHrs, 2)
+    return round(timeHrs, 4)
 
 
 def getTimeCurrentDate():
@@ -59,7 +62,7 @@ def avgWorkTime():
         timeStr = datetime.strftime(total, "%H:%M:%S")
         timeHrs = TimeToHrs(timeStr)
         avg = timeHrs/(len(records))
-        return round(avg, 2)
+        return round(avg, 4)
     return 0
 
 # Add Two datetimes
